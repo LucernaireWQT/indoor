@@ -87,7 +87,7 @@ def get_rssis() -> dict[str, str]:
     values: dict[str, str] = {}
 
     output = subprocess.getoutput('.\\WifiInfoView.exe /stab "" | .\\GetNir.exe "MAC Address,RSSI" "1=1"')
-
+    
     for line in output.split("\n"):
         mac, rssi = line.split("\t")
         values[mac] = rssi
@@ -126,4 +126,4 @@ def capture_values_to_file(filename):
 
 
 if __name__ == "__main__":
-    capture_values_to_file("captures.csv")
+    capture_values_to_file("new_captures.csv")

@@ -41,7 +41,7 @@ def clean_data(dataframe: pd.DataFrame, nanValueAction: int | float | NaNValueAc
 
     # Replace NaN with average of zone
     elif nanValueAction == NaNValueAction.ZONE_AVERAGE:
-        zones = df["zone"].unique()
+        zones = dataframe["zone"].unique()
         for zone in zones:
             zone_row_bools = dataframe["zone"] == zone
             zone_mean = dataframe[zone_row_bools].drop(["zone", "mesure"], axis=1).mean().fillna(-95)  # type: ignore
